@@ -4,12 +4,20 @@ An interactive, browser-based exploded view of the NVIDIA H100 SXM5 80 GB module
 software developers who are new to GPUs. Drag the slider to split the module apart, click any part
 to read what it is and why it matters, and step inside the GPU die to see an architecture schematic.
 
-## Run it
+## Download and run
+
+You need [Node.js](https://nodejs.org) 20 or newer. Then either clone the repo or download the
+source ZIP from the [latest release](https://github.com/barratmohammad/split-gpu/releases/latest)
+and unzip it.
 
 ```bash
+git clone https://github.com/barratmohammad/split-gpu.git
+cd split-gpu
 npm install
-npm run dev        # http://localhost:5173
+npm run dev        # open http://localhost:5173
 ```
+
+Everything runs locally in your browser; there is no server or account involved.
 
 Other commands:
 
