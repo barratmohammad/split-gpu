@@ -1,0 +1,37 @@
+.panel {
+  padding:24px;
+  border-radius:16px;
+  background:linear-gradient(135deg,rgba(249,251,255,.30),rgba(232,237,245,.16));
+  border:1px solid rgba(255,255,255,.38);
+  backdrop-filter:blur(28px) saturate(.85);
+  -webkit-backdrop-filter:blur(28px) saturate(.85);
+  box-shadow:inset 0 1px 0 #ffffff30;
+  scrollbar-width:thin;
+}
+.panel__caption { font-size:9px; letter-spacing:.2em; text-transform:uppercase; color:#657181; margin-bottom:16px; }
+.panel__title { font-size:28px; line-height:1.05; font-weight:550; letter-spacing:-.035em; margin:0 0 15px; }
+.panel__subtitle { font-size:14px; font-weight:500; line-height:1.4; letter-spacing:-.02em; margin:0 0 16px; color:#34404f; }
+.panel__body { font-size:13px; line-height:1.65; color:#46515f; margin:0 0 12px; font-weight:400; letter-spacing:-.01em; }
+.chips { display:grid; grid-template-columns:1.2fr 1fr 1fr; gap:10px; margin-top:18px; }
+.chip { background:rgba(248,250,255,.32); border:1px solid #ffffff66; border-radius:12px; padding:18px 6px 16px; text-align:center; }
+.chip__value { font-size:16px; font-weight:600; letter-spacing:-.04em; line-height:1.2; }
+.chip__label { margin-top:6px; font-size:10px; color:#677282; }
+.panel__action { display:block; width:auto; margin:20px 0 0; padding:0 0 4px; background:none; border:0; border-bottom:1px solid #79839340; color:#45515e; font:inherit; font-size:13px; cursor:pointer; }
+.panel__action:hover { color:#111b27; border-bottom-color:currentColor; }
+.panel__details { margin-top:18px; padding-top:12px; border-top:1px solid #6d7a8a18; color:#6a7482; font-size:10px; }
+.panel__details summary { cursor:pointer; width:fit-content; }
+.panel__note,.panel__footer { font-size:12px; line-height:1.6; margin:12px 0 0; }
+.part-picker { display:grid; gap:8px; margin-top:16px; font-size:12px; }
+.part-picker select { width:100%; border:1px solid #a9b0ba66; border-radius:8px; background:#ffffff44; padding:9px; color:#263240; }
+.panel--detail .panel__title { font-size:26px; letter-spacing:-.04em; }
+@media(max-width:900px) {
+  .panel { padding:22px; border-radius:16px; }
+  .panel__title { font-size:26px; }
+  .panel__caption { margin-bottom:14px; }
+  .panel__subtitle { margin-bottom:14px; font-size:14px; }
+  .panel__body { font-size:13px; margin-bottom:14px; }
+  .chips { margin-top:20px; }
+  .chip { padding:12px 6px; }
+}
+
+.panel__source { display:inline-block; margin-top:14px; color:#465e70; text-underline-offset:3px; font-size:12px; }

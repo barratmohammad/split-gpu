@@ -1,0 +1,36 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Split GPU — engineering references</title>
+<style>
+:root{color-scheme:light;font-family:Inter,Arial,sans-serif;color:#242a31;background:#e4e7ea}*{box-sizing:border-box}body{margin:0;background:linear-gradient(145deg,#fafbfc,#dce0e4)}header,main,footer{max-width:1440px;margin:auto;padding:32px 40px}header{display:flex;align-items:center;justify-content:space-between;gap:24px}.brand{letter-spacing:.3em;font-size:16px}.tag{font-size:13px;color:#53616e}h1{font-size:clamp(32px,4vw,58px);font-weight:500;letter-spacing:-.04em;margin:16px 0}h2{font-size:30px;letter-spacing:-.025em;margin:12px 0 20px;font-weight:500}p{line-height:1.6}a{color:#31526b;text-underline-offset:4px}nav{display:flex;gap:24px;flex-wrap:wrap;margin:24px 0 40px}section{display:grid;grid-template-columns:minmax(0,2fr) minmax(280px,1fr);gap:28px;margin-bottom:36px;scroll-margin-top:24px;align-items:start}figure{margin:0;background:#fff;border:1px solid #d3d9df;border-radius:16px;overflow:hidden}figure img{display:block;width:100%;height:auto;padding:16px}figcaption{padding:16px 24px;border-top:1px solid #e3e7eb;font-size:13px;line-height:1.6;color:#53616e}.panel{padding:28px;border:1px solid #fff;border-radius:16px;background:#ffffffb8;box-shadow:0 8px 32px #18253508}.eyebrow{font-size:11px;letter-spacing:.14em;text-transform:uppercase;color:#526474}.note{border-left:3px solid #7d929f;padding-left:14px;font-size:14px}.facts{display:flex;flex-wrap:wrap;gap:10px;margin:24px 0}.fact{background:#eef1f4;padding:12px;border-radius:10px;font-size:13px}.fact strong{display:block;font-size:20px;margin-bottom:6px}.stack{display:grid;gap:20px}footer{font-size:13px;line-height:1.6;color:#53616e;padding-bottom:48px}@media(max-width:800px){header,main,footer{padding:24px}section{grid-template-columns:1fr}.tag{max-width:160px}nav{gap:16px}}
+</style>
+</head>
+<body>
+<header><div class="brand">SPLIT GPU</div><div class="tag">H100 SXM 80 GB · Reference library</div></header>
+<main>
+<div class="eyebrow">Official source artwork · Preserved without regeneration</div>
+<h1>Build from the documented hardware.</h1>
+<p>Use these original manufacturer illustrations to review geometry and component identity. Generated concepts remain references for visual style only.</p>
+<nav aria-label="Reference sections"><a href="#assembly">01 · Service assembly</a><a href="#module">02 · Exposed module</a><a href="#architecture">03 · Architecture</a></nav>
+<section id="assembly">
+<div class="stack">
+<figure><img src="references/lenovo-h100-cover.png" alt="Original Lenovo service drawing showing the plastic cover lifting off one H100/H200 heatsink in the GPU baseboard assembly"><figcaption>Lenovo · ThinkSystem SR685a V3 · Figure 1: Plastic cover removal. Source drawing covers H100/H200; use it for the documented service assembly, not H200 specifications.</figcaption></figure>
+<figure><img src="references/lenovo-h100-assembly.png" alt="Original Lenovo service drawing showing GPU and heatsink lifting together from the baseboard"><figcaption>Lenovo · Figure 5: GPU and heat sink module removal. The GPU and heatsink remain together.</figcaption></figure>
+</div>
+<aside class="panel"><div class="eyebrow">01 · Physical service assembly</div><h2>Cover, assembly, baseboard.</h2><p>The source separates the plastic cover, then removes the GPU and heatsink together. The baseboard provides the receiving socket.</p><p class="note">Model this documented separation. Do not infer a detachable fin stack, copper vapor chamber or thermal pad from these drawings.</p><p><a href="https://pubs.lenovo.com/sr685a-v3/remove_an_h100_gpu">Open Lenovo procedure and original figures</a></p><p><a href="https://www.dell.com/support/resources/en-us/3dviewer/ic140xe9680001001g/how-to-replace-the-gpu-and-heatsink-module-h100-on-a-poweredge-xe9680">Open corroborating Dell H100 procedure</a></p><p>The original line drawings do not establish material composition or finish. Their illustrated server context must not be presented as part of a single GPU module.</p></aside>
+</section>
+<section id="module">
+<figure><img src="references/nvidia-h100-sxm5.jpg" alt="NVIDIA original image of the exposed H100 SXM5 module with central silicon and surrounding board components"><figcaption>NVIDIA · Hopper Architecture In-Depth · Figure 1. Original image retained at source resolution.</figcaption></figure>
+<aside class="panel"><div class="eyebrow">02 · Exposed module</div><h2>Reference for visible placement.</h2><p>Use NVIDIA’s image for the board silhouette and arrangement of visible components. Do not invent hidden connectors, material grades or package part numbers.</p><p class="note">This exposed-module view is separate from the documented service procedure above. It does not demonstrate removal of the heatsink.</p><p><a href="https://developer.nvidia.com/blog/nvidia-hopper-architecture-in-depth/">Open NVIDIA module reference</a></p></aside>
+</section>
+<section id="architecture">
+<figure><img src="references/nvidia-gh100-full-design.png" alt="NVIDIA full GH100 architecture diagram with 144 SMs, shown as full-design reference rather than the enabled H100 SXM configuration"><figcaption>NVIDIA · Figure 3: full GH100 design, including 144 SMs. This is a functional block diagram, not a measured physical floorplan.</figcaption></figure>
+<aside class="panel"><div class="eyebrow">03 · Architecture, not mechanical parts</div><h2>Full design versus enabled product.</h2><p>The original diagram shows the full design. Our H100 SXM target enables fewer resources.</p><div class="facts"><div class="fact"><strong>132</strong>enabled SMs</div><div class="fact"><strong>50 MB</strong>L2 cache</div><div class="fact"><strong>80 GB</strong>HBM3</div></div><p class="note">Do not turn diagram blocks into removable chips or assign disabled SM positions. Any animated separation must be described as a schematic.</p><p><a href="https://developer.nvidia.com/blog/nvidia-hopper-architecture-in-depth/">Open NVIDIA architecture explanation</a> · <a href="https://www.nvidia.com/en-us/data-center/h100/">Product specifications</a></p></aside>
+</section>
+</main>
+<footer>Reference artwork belongs to its respective manufacturer. This local design-review page is not NVIDIA or Lenovo CAD and is not a complete parts inventory. See <a href="../../HARDWARE_SPEC.md">HARDWARE_SPEC.md</a> for integration requirements. Dell’s interactive 3D viewer was not inspectable in this session; the linked transcript and the original Lenovo figures were inspected.</footer>
+</body>
+</html>
