@@ -19,7 +19,7 @@ function build(kind: MaterialKind): THREE.MeshPhysicalMaterial {
     emissiveIntensity: p.emissiveIntensity ?? 1,
     envMapIntensity: p.envMapIntensity ?? 1,
   });
-  if (['silverMetal','copper','graphite'].includes(kind)) {
+  if (['silverMetal','champagneMetal','copper','graphite'].includes(kind)) {
     const width=512, height=512;
     const pixels=new Uint8Array(width*height*4);
     for(let y=0;y<height;y++) for(let x=0;x<width;x++) {
@@ -90,10 +90,10 @@ function hatch(ctx: CanvasRenderingContext2D, x: number, y: number, w: number, h
 }
 
 const DIE_LAYOUT = {
-  bandFill: '#577ebd',
-  gpcFill: '#6964bd',
-  l2Fill: '#539aa6',
-  ctrlFill: '#647fac',
+  bandFill: '#4c524c',
+  gpcFill: '#454d46',
+  l2Fill: '#596353',
+  ctrlFill: '#525b52',
 };
 
 /**
@@ -108,12 +108,12 @@ export function getDieTexture(): THREE.CanvasTexture {
   const W = 1024;
   const H = 896;
   const [c, ctx] = makeCanvas(W, H);
-  ctx.fillStyle = '#2a566e';
+  ctx.fillStyle = '#303a34';
   ctx.fillRect(0, 0, W, H);
   const block = (x: number, y: number, w: number, h: number, fill: string) => {
     ctx.fillStyle = fill;
     ctx.fillRect(x, y, w, h);
-    ctx.strokeStyle = 'rgba(190, 200, 255, 0.45)';
+    ctx.strokeStyle = 'rgba(167, 174, 149, 0.22)';
     ctx.lineWidth = 3;
     ctx.strokeRect(x, y, w, h);
   };
@@ -142,10 +142,10 @@ export function getDieTexture(): THREE.CanvasTexture {
   // Dense patterned silicon detail, decorative rather than a fabricated transistor map.
   for (let i=0;i<1800;i++) {
     const x=35+(i*47)%954, y=35+(i*71)%826;
-    ctx.strokeStyle=i%3?'rgba(18,35,65,.55)':'rgba(172,240,238,.65)';
+    ctx.strokeStyle=i%3?'rgba(25,32,27,.4)':'rgba(159,173,145,.28)';
     ctx.lineWidth=1;ctx.strokeRect(x,y,5+i%19,3+i%11);
   }
-  const wash=ctx.createLinearGradient(0,0,W,H);wash.addColorStop(0,'#22ddcc44');wash.addColorStop(.5,'#bb35f455');wash.addColorStop(1,'#239bf544');ctx.fillStyle=wash;ctx.fillRect(0,0,W,H);
+  const wash=ctx.createLinearGradient(0,0,W,H);wash.addColorStop(0,'#a8b59812');wash.addColorStop(.5,'#b4aa8510');wash.addColorStop(1,'#819d8d12');ctx.fillStyle=wash;ctx.fillRect(0,0,W,H);
   const t = toTexture(c);
   cache.set(key, t as unknown as THREE.Material);
   return t;
@@ -163,8 +163,8 @@ export function getDieMaterial(): THREE.MeshPhysicalMaterial {
     m.color.set('#ffffff');
     m.metalness = 0.75;
     m.roughness = 0.24;
-    m.emissive.set('#8473ed');
-    m.emissiveIntensity = 0.4;
+    m.emissive.set('#000000');
+    m.emissiveIntensity = 0;
     m.needsUpdate = true;
     cache.set(key, m);
   }

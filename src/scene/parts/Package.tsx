@@ -16,7 +16,7 @@ export function Package({ size: [w, h, d] }: Props) {
   ];
   return (
     <group>
-      <MechanicalPlate size={[w,h,d]} bolts />
+      <MechanicalPlate size={[w,h,d]} material="darkBoard" bolts />
       <mesh position={[0, h / 2 + 0.02, 0]} material={getMaterial('substrate')} castShadow receiveShadow>
         <boxGeometry args={[2.95, 0.04, 2.85]} />
       </mesh>

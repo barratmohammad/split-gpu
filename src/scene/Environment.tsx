@@ -11,7 +11,7 @@ export function Environment() {
     <ambientLight intensity={0.2}/>
     <directionalLight position={[-4,12,5]} intensity={2.5} castShadow shadow-mapSize={[2048,2048]} shadow-bias={-.00015}
       shadow-normalBias={.025} shadow-camera-left={-12} shadow-camera-right={12} shadow-camera-top={14} shadow-camera-bottom={-12} shadow-camera-far={45}/>
-    <directionalLight position={[7,6,-4]} intensity={1.1} color="#edf3ff"/>
+    <directionalLight position={[7,6,-4]} intensity={1.1} color="#fffaf0"/>
     <DreiEnvironment resolution={512} frames={1} environmentIntensity={1}>
       <color attach="background" args={['#16191d']}/>
       <Lightformer intensity={5} position={[-5,8,3]} rotation-y={Math.PI/3} rotation-x={Math.PI/5} scale={[5,10,1]}/>

@@ -26,12 +26,12 @@ export function Board({ size: [width, h, depth] }: { size: Vec3 }) {
     for (let i = 0; i < uv.count; i++) uv.setXY(i, (pos.getX(i) + w / 2) / w, (pos.getZ(i) + d / 2) / d);
     const canvas = document.createElement('canvas'); canvas.width = 2048; canvas.height = 1024;
     const c = canvas.getContext('2d')!;
-    c.fillStyle = '#10291f'; c.fillRect(0, 0, 2048, 1024);
+    c.fillStyle = '#191d1c'; c.fillRect(0, 0, 2048, 1024);
     for (let i = 0; i < 1600; i++) {
       const x = (i * 137 + 37) % 2048; const y = (i * 83 + 51) % 1024;
-      c.strokeStyle = i % 4 ? '#304633' : '#8e834a'; c.lineWidth = i % 3 ? 1 : 2;
+      c.strokeStyle = i % 4 ? '#303831' : '#655e45'; c.lineWidth = i % 3 ? 1 : 2;
       c.beginPath(); c.moveTo(x, y); c.lineTo(x + 18 + i % 40, y); c.lineTo(x + 42 + i % 40, y + 24); c.lineTo(x + 90, y + 24); c.stroke();
-      c.fillStyle = '#707764'; c.fillRect(x, y, 3, 3);
+      c.fillStyle = '#62655a'; c.fillRect(x, y, 3, 3);
     }
     c.fillStyle = '#9b9c87'; c.font = '14px monospace';
     for (let i = 0; i < 46; i++) c.fillText(`R${i + 1}`, (i * 173) % 1950 + 20, (i * 91) % 950 + 30);

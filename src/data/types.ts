@@ -11,6 +11,7 @@ export type MaterialKind =
   | 'plasticCover'
   | 'substrate'
   | 'silverMetal'
+  | 'champagneMetal'
   | 'siliconGray'
   | 'siliconDie'
   | 'graphite';
